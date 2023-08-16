@@ -114,7 +114,9 @@ app.get('/deletarresposta/:idpergunta/:idresposta', testartoken, (req, res) => {
     let idpergunta = req.params.idpergunta
     let id = req.params.idresposta
 
-    Resposta.destroy({where : {id : id}}).then(res.redirect(`/pergunta/${idpergunta}`)).catch(err => { res.send(err)})
+    Resposta.destroy({where : {id : id}})
+    .then(res.redirect(`/pergunta/${idpergunta}`))
+    .catch(err => { res.send(err)})
 })
 
 app.post('/salvarresposta', (req, res) => {
@@ -269,6 +271,7 @@ app.get('/pergunta/:id', testartoken, (req, res) => {
     let perguntaId = req.params.id
     let userIdSession = req.session.user.id
     let atualizarValor = req.session.comando.atualizar
+    console.log(`-------------------------------------------------${userIdSession}---------------------------`)
     
     Pergunta.findOne({
         where: {id : perguntaId},

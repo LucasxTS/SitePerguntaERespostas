@@ -6,9 +6,10 @@
  <div class="container">
 
     <% if (atualizar == 0) { %>
-        
-        <% if (userId == pergunta.criaedorId) { %>
-            <a href="/deletarpergunta/<%=pergunta.id%>"><button class="btn btn-success ">Deletar pergunta</button></a>
+        <%console.log(`......................${userId}....................`)%>
+        <%console.log(`................${userId}................`)%>
+        <% if (userId == pergunta.criadorId) { %>
+            <a href="/deletarpergunta/<%=pergunta.id%>"><button class="btn btn-danger  ">Deletar pergunta</button></a>
            <a href="/atualizarpergunta/<%= pergunta.id %>"><button class="btn btn-success">Editar pergunta</button></a>  
         <% } else { %>
     
