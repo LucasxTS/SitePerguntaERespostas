@@ -1,0 +1,42 @@
+<%- include ('partials/header.ejs') %>
+    <%- include ('partials/navbar.ejs') %>
+
+        <div class="container">
+            <br>
+
+            <a href="/perguntar" class="btn btn-success">Cadastre aqui sua pergunta</a>
+            <br><br>
+            <h1>DUVIDAS DA COMUNIDADE</h1><br>
+            <div class="row2">
+                <%banco.forEach(banco=> { %>
+
+                    <div class="pessoa">
+                        <br>
+                        <h6><%=banco.criadorNome%> perguntou</h6>
+                        <h4>
+                            
+                            <%=banco.titulo%>
+                        </h4>
+                        <hr>
+                        
+                        Publicado em <%= banco.createdAt.toISOString().substring(0, 10) %>
+                        <label>_______________________________________________</label>
+                        <div class="card body">
+
+
+                        </div>
+                        <br>
+                        <div class="card-footer">
+                            <a href="/pergunta/<%=banco.id %>" class="btn btn-primary">Responder</a>
+
+                        </div>
+                        
+
+                    </div>
+                    <br>
+                    <%})%>
+            </div>
+        </div>
+
+
+        <%- include ('partials/footer.ejs') %>

@@ -1,0 +1,62 @@
+ <%- include ('partials/header.ejs') %>
+ <%- include ('partials/navbar.ejs') %>
+<body>
+    <br><br>
+  
+    <% if (status != 1 ) { %>
+        <div class="container">
+            <div class="card" id="formulario-pergunta">
+                <div class="card-header ">
+                    <h3 class="">Realizar Pergunta</h3>
+    
+                    <div class="card-body">
+                        <form  method="POST" action="/salvarpergunta">
+                            <label>Titulo</label>
+                            <input type="text" placeholder="Titulo" class="form-control" name="titulo">
+                            <br><label >Descrição</label>
+                            <textarea placeholder="Descreva sua pergunta" class="form-control" name="descricao"></textarea>
+                            <br>
+                        
+                            <button type="submit" class="btn btn-success">Perguntar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else { %>
+
+        <div class="container">
+            <div class="card" id="formulario-pergunta">
+                <div class="card-header ">
+                    <h3 class="">Realizar Pergunta</h3>
+    
+                    <div class="card-body">
+                        <form  method="POST" action="/salvaredicao">
+                            <label>Titulo</label>
+                            <input type="text" placeholder="Titulo" class="form-control" name="ReTitulo">
+                            <br><label >Descrição</label>
+                            <textarea placeholder="Descreva sua pergunta" class="form-control" name="desc"></textarea>
+                            <br>
+                            <input name="idPergunta" type="hidden" value="<%=id%>">
+                        
+                            <button type="submit" class="btn btn-success">Atualizar</button>
+                          
+    
+    
+                                
+    
+                               
+                           
+                       
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <% } %>
+    
+
+</body>
+
+<%- include ('partials/footer.ejs') %>

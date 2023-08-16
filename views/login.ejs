@@ -1,0 +1,61 @@
+<%- include ('partials/header.ejs') %>
+
+    <body>
+        <%- include ('partials/navbar.ejs') %>
+      
+        <% if(testelogin == 0){ %>
+        <div class="containere">
+            <br><br><br>  <h1>Login</h1><br><br>
+        <form action="/login" method="POST">
+            <p>Email</p>
+            <input type="text" name="usuario" placeholder="Digite seu email"><br><br>
+            <p>Senha</p>
+            <input type="password" name="senha" placeholder="Digite sua Senha"><br><br>
+            <input type="submit" class="buta" value="Enviar">
+            
+        </form>
+        <br><br>
+        <form action="/testelogin" method="POST">
+            <input type="submit" class="cadastre" value="Se cadastre aqui">
+        </form>
+    </div>
+        <%}else {%>
+            <div class="containere">
+            <h1>Cadastro</h1>
+            <form action="/salvarcadastro" method="POST">
+                <input type="text" name="nome" placeholder="Digite seu nome"><br>
+                <input type="email" name="email" placeholder="Digite seu email"><br>
+                <input type="password" name="senha" placeholder="Digite sua Senha"><br>
+                <input type="password" name="confirmasenha" placeholder="Confirme sua senha"><br>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+   
+            <%}%>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    </body>
+    <%- include ('partials/footer.ejs') %>

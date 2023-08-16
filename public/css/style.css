@@ -1,0 +1,75 @@
+.lgo{
+    width: 70%;
+    height: 80%;
+    margin-left: 125%;
+}
+.oi{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #88b6a3;
+    background-image: linear-gradient(#88b6a3, white);
+}
+
+label{
+    opacity: 0%;
+}
+.row2 {
+    font-family: 'NovaFonte1';
+    width:85%;
+    height: 50%;
+    overflow: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    background-color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    
+  
+}
+
+.pessoa {
+    text-align: center;
+    margin-left: 2%;
+    margin-top: 4%;
+    margin-right: 3%;
+    width: 90%;
+    height: 70%;
+    background-color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+.pessoa:hover {
+    transform: scale(105%); /* Aplica um movimento quando o mouse está em cima */
+    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+ .containere{
+    text-align: center;
+ }
+ .cadastre{
+    background-color: transparent;
+    color: blue;
+    border: transparent;
+ }
+ input{
+    border-radius: 5px;
+    width: 25%;
+    height: 7%;
+ }
+ body{
+    text-align: center;
+ }
+ .buta{
+    width: 10%;
+ }
+ :placeholder-shown{
+text-align: center;
+ }
+ p{
+    font-size: 1.5vw;
+ }

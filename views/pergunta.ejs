@@ -1,0 +1,73 @@
+<%- include ('partials/header.ejs') %>
+<body>
+    
+<%- include ('partials/navbar.ejs') %>
+
+ <div class="container">
+
+    <% if (atualizar == 0) { %>
+        
+        <% if (userId == pergunta.criaedorId) { %>
+            <a href="/deletarpergunta/<%=pergunta.id%>"><button class="btn btn-success ">Deletar pergunta</button></a>
+           <a href="/atualizarpergunta/<%= pergunta.id %>"><button class="btn btn-success">Editar pergunta</button></a>  
+        <% } else { %>
+    
+        <% } %>
+       
+        <br><br><hr><h4><%=pergunta.criadorNome%> perguntou</h4><br>
+        <h3><%=pergunta.titulo%></h3>
+        <h6><%=pergunta.descricao%></h6><br>
+        Publicado em <%= pergunta.createdAt.toISOString().substring(0, 10) %>
+    
+    
+    
+        <div class="card-body">
+            <form  method="POST" action="/salvarresposta">
+           
+                <label >Resposta</label>
+                <textarea placeholder="Digite sua Resposta" class="form-control" name="resposta"></textarea>
+                <br>
+                <input type="hidden" name="perguntaId" value="<%=pergunta.id%>">
+                
+                <button type="submit" class="btn btn-success">Responder</button>
+    
+            </form>
+    
+            <div class="resposta"><br>
+                <h3>Respostas</h3>
+                <% respostas.forEach(respostas => { %>
+                    <div class="card">
+                    <h5><%=respostas.criadorResposta%> respondeu
+                        <%=respostas.Corpo%> --------------
+                        <%=respostas.createdAt.toISOString().substring(0, 10)%>
+                        <% if (userId == respostas.criadorId) { %>
+                            <a href="/deletarresposta/<%=pergunta.id%>/<%=respostas.id%>"><button class="btn btn-danger ">Apagar</button></a>
+                            <a href="/atualizarresposta/<%=pergunta.id%>/<%=respostas.id%>"><button class="btn btn-success">Atualizar</button></a>
+                        <% } %>
+                    </h5>
+                    </div> 
+                    <br>
+    
+              <%  }) %>
+            </div>
+        </div>
+    <% } else { %>
+
+        <div class="card-body">
+            <form  method="POST" action="/salvaratualizacao">
+           
+                <label >Resposta</label>
+                <textarea placeholder="Digite sua Resposta" class="form-control" name="resposta2"></textarea>
+                <br>
+                <input type="hidden" name="perguntaId" value="<%=pergunta.id%>">
+                <button type="submit" class="btn btn-success">Responder</button>
+        </div>
+
+    <% } %>
+    
+
+ </div>
+    
+
+</body>
+<%- include ('partials/footer.ejs') %>
